@@ -1,10 +1,10 @@
+import { Container } from './common/Container';
+
 export const ContactSection = () => {
   return (
-    <section>
-      <div>
-        <h2>{`<contact>`}</h2>
-        <h2>{`</contact>`}</h2>
-      </div>
-    </section>
+    <Container>
+      <h2>{`<contact>`}</h2>
+      <h2>{`</contact>`}</h2>
+    </Container>
   );
 };

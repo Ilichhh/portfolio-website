@@ -1,17 +1,17 @@
 import { Header } from './components/Header';
-import { PromoSection } from './components/PromoSection';
+import { HeroSection } from './components/HeroSection';
 import { AboutSection } from './components/AboutSection';
 import { ProjectsSection } from './components/ProjectsSection';
 import { ContactSection } from './components/ContactSection';
 
 export const App = () => {
   return (
-    <div>
+    <>
       <Header />
-      <PromoSection />
+      <HeroSection />
       <AboutSection />
       <ProjectsSection />
       <ContactSection />
-    </div>
+    </>
   );
 };

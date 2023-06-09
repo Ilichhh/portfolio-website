@@ -1,6 +1,8 @@
-export const PromoSection = () => {
+import { Container } from './common/Container';
+
+export const HeroSection = () => {
   return (
-    <section>
+    <Container>
       <h1>
         Hi,
         <br />
@@ -10,6 +12,6 @@ export const PromoSection = () => {
       </h1>
       <h2>I’m a design oriented software engineer. Experienced in blockchain.</h2>
       <button>HIRE ME!</button>
-    </section>
+    </Container>
   );
 };
