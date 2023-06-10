@@ -1,10 +1,12 @@
-import { Container } from './common/Container';
+import { Container, SectionDark } from './common';
 
 export const ProjectsSection = () => {
   return (
-    <Container>
-      <h2>{`<projects>`}</h2>
-      <h2>{`</projects>`}</h2>
-    </Container>
+    <SectionDark>
+      <Container>
+        <h2>{`<projects>`}</h2>
+        <h2>{`</projects>`}</h2>
+      </Container>
+    </SectionDark>
   );
 };

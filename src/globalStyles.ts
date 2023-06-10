@@ -9,8 +9,12 @@ const GlobalStyles = createGlobalStyle`
   ${normalize}
   body {
     font-family: 'Roboto Mono', monospace;
-    background-color: ${theme.colors.bg};
-    color: ${theme.colors.greyLight};
+    background-color: ${theme.colors.bgLight};
+    color: ${theme.colors.textLight};
+  }
+  a {
+    text-decoration: none;
+    color: ${theme.colors.textLight};
   }
   * {
     box-sizing: border-box;

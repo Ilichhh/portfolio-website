@@ -1,8 +1,9 @@
 const theme = {
   colors: {
-    bg: '#232323',
-    greyLight: '#747474',
-    greyDark: '#272727',
+    bgLight: '#232323',
+    bgDark: '#1c1c1c',
+    textLight: '#747474',
+    textDark: '#272727',
     red: '#FF652F',
     yellow: '#FFE400',
     green: '#00FF99',
