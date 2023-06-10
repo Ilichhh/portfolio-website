@@ -9,6 +9,7 @@ const GlobalStyles = createGlobalStyle`
   ${normalize}
   body {
     font-family: 'Roboto Mono', monospace;
+    font-size: 24px;
     background-color: ${theme.colors.bgLight};
     color: ${theme.colors.textLight};
   }

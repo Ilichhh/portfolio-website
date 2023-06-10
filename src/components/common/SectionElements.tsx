@@ -11,6 +11,12 @@ const ContentBox = styled.div`
   padding: 60px 0 60px;
 `;
 
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 10%;
+`;
+
 interface SectionHeaderProps extends PropsWithChildren {
   color: string;
 }
@@ -21,4 +27,8 @@ export const SectionHeader = ({ color, children }: SectionHeaderProps) => {
 
 export const SectionContent = ({ children }: PropsWithChildren) => {
   return <ContentBox>{children}</ContentBox>;
+};
+
+export const TwoColumnsWrapper = ({ children }: PropsWithChildren) => {
+  return <Wrapper>{children}</Wrapper>;
 };
