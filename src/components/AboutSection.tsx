@@ -1,4 +1,6 @@
-import { Container } from './common';
+import { Container, SectionHeader, SectionContent } from './common';
+
+import theme from '../theme';
 
 export const AboutSection = () => {
   const codeText = `  skills = {
@@ -25,8 +27,8 @@ export const AboutSection = () => {
   return (
     <section>
       <Container>
-        <h2>{`<about>`}</h2>
-        <div>
+        <SectionHeader color={theme.colors.yellow}>{`<about>`}</SectionHeader>
+        <SectionContent>
           <div>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
@@ -40,8 +42,8 @@ export const AboutSection = () => {
             pariatur.
           </div>
           <pre>{codeText}</pre>
-        </div>
-        <h2>{`</about>`}</h2>
+        </SectionContent>
+        <SectionHeader color={theme.colors.yellow}>{`</about>`}</SectionHeader>
       </Container>
     </section>
   );
