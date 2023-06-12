@@ -1,6 +1,6 @@
-import { Container, SectionHeader, SectionContent } from './common';
+import { Container, SectionHeader, SectionContent } from '../common';
 
-import theme from '../theme';
+import theme from '../../theme';
 
 export const ContactSection = () => {
   return (

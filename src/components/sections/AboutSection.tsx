@@ -1,9 +1,9 @@
-import { Container, SectionHeader, SectionContent, TwoColumnsWrapper } from './common';
+import { Container, SectionHeader, SectionContent, TwoColumnsWrapper } from '../common';
 
 import styled from 'styled-components';
-import theme from '../theme';
+import theme from '../../theme';
 
-import { skillsListData } from '../data/skillsList';
+import { skillsListData } from '../../data/skillsList';
 
 const About = styled.div`
   flex: 1 1 0;

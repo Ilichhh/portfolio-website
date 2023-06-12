@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import { Container } from './common';
+import { Container } from '../common';
 
 import styled from 'styled-components';
-import theme from '../theme';
+import theme from '../../theme';
 
 const Section = styled.section`
   height: calc(100vh - 70px);
