@@ -14,6 +14,7 @@ interface ProjectPreviewProps {
   imageUrl: string;
   githubUrl: string;
   deployUrl: string;
+  caseStudyUrl: string;
 }
 
 export const ProjectPreview = ({
@@ -22,6 +23,7 @@ export const ProjectPreview = ({
   imageUrl,
   githubUrl,
   deployUrl,
+  caseStudyUrl,
 }: ProjectPreviewProps) => {
   return (
     <div>
@@ -34,6 +36,7 @@ export const ProjectPreview = ({
       <Link to={deployUrl} target="_blank">
         <img src={LinkIcon}></img>
       </Link>
+      <Link to={caseStudyUrl}>CASE STUDY</Link>
     </div>
   );
 };

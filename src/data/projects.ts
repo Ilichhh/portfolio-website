@@ -6,6 +6,7 @@ export const projectsData = [
     imageUrl: 'https://i.gyazo.com/98fdfafa91762e8d84a1b241f71b58d5.png',
     githubUrl: 'https://github.com/Ilichhh/telegram-clone',
     deployUrl: 'https://netelegram.netlify.app/register',
+    caseStudyUrl: '/messenger',
   },
   {
     name: 'GraphiQL Playground',
@@ -14,5 +15,6 @@ export const projectsData = [
     imageUrl: 'https://github.com/Ilichhh/graphiql-app/blob/develop/public/hero.png?raw=true',
     githubUrl: 'https://github.com/Ilichhh/graphiql-app',
     deployUrl: 'https://graphiql-app.netlify.app/',
+    caseStudyUrl: '/graphiql',
   },
 ];

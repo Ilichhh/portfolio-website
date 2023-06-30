@@ -20,6 +20,7 @@ export const ProjectsSection = () => {
       imageUrl={project.imageUrl}
       githubUrl={project.githubUrl}
       deployUrl={project.deployUrl}
+      caseStudyUrl={project.caseStudyUrl}
     />
   ));
 

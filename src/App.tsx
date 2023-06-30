@@ -1,15 +1,15 @@
-import { Header, Footer } from './components';
-import { HeroSection, AboutSection, ProjectsSection, ContactSection } from './components/sections';
+import { Routes, Route } from 'react-router-dom';
+
+import { MainPage } from './pages/MainPage';
+import { MessengerCaseStudyPage } from './pages/MessengerCaseStudyPage';
+import { GraphiqlCaseStudyPage } from './pages/GraphiqlCaseStudyPage';
 
 export const App = () => {
   return (
-    <>
-      <Header />
-      <HeroSection />
-      <AboutSection />
-      <ProjectsSection />
-      <ContactSection />
-      <Footer />
-    </>
+    <Routes>
+      <Route path="/" element={<MainPage />} />
+      <Route path="/messenger" element={<MessengerCaseStudyPage />} />
+      <Route path="/graphiql" element={<GraphiqlCaseStudyPage />} />
+    </Routes>
   );
 };
