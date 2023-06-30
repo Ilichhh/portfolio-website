@@ -6,7 +6,7 @@ export const projectsData = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     imageUrl: 'https://i.gyazo.com/98fdfafa91762e8d84a1b241f71b58d5.png',
     githubUrl: 'https://github.com/Ilichhh/telegram-clone',
-    deployUrl: 'https://telegram-rs-clone.netlify.app',
+    deployUrl: 'https://netelegram.netlify.app/register',
   },
   {
     name: 'GraphiQL',
