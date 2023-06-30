@@ -1,18 +1,16 @@
 export const projectsData = [
   {
-    name: 'Telegram',
-    subheader: 'Messenger clone of Telegram',
+    name: 'Messenger App',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      'This application is a clone of the well-known messenger Telegram. Implemented sending text and photos, creating and deleting both private and group chats, photo gallery in each chat, profile editing, light and dark themes, adaptive design.',
     imageUrl: 'https://i.gyazo.com/98fdfafa91762e8d84a1b241f71b58d5.png',
     githubUrl: 'https://github.com/Ilichhh/telegram-clone',
     deployUrl: 'https://netelegram.netlify.app/register',
   },
   {
-    name: 'GraphiQL',
-    subheader: 'Playground for GraphQL queries',
+    name: 'GraphiQL Playground',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      'This is an application for creating and editing GraphQL queries. Implemented the editor of queries, variables, headers, navigation in the scheme, language change, as well as the ability to track the history of queries and save templates.',
     imageUrl: 'https://github.com/Ilichhh/graphiql-app/blob/develop/public/hero.png?raw=true',
     githubUrl: 'https://github.com/Ilichhh/graphiql-app',
     deployUrl: 'https://graphiql-app.netlify.app/',

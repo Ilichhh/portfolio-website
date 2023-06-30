@@ -16,7 +16,6 @@ export const ProjectsSection = () => {
     <ProjectPreview
       key={project.name}
       name={project.name}
-      subheader={project.subheader}
       description={project.description}
       imageUrl={project.imageUrl}
       githubUrl={project.githubUrl}

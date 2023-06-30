@@ -10,7 +10,6 @@ const Screenshot = styled.img`
 
 interface ProjectPreviewProps {
   name: string;
-  subheader: string;
   description: string;
   imageUrl: string;
   githubUrl: string;
@@ -19,7 +18,6 @@ interface ProjectPreviewProps {
 
 export const ProjectPreview = ({
   name,
-  subheader,
   description,
   imageUrl,
   githubUrl,
@@ -29,7 +27,6 @@ export const ProjectPreview = ({
     <div>
       <Screenshot src={imageUrl} alt="Project preview"></Screenshot>
       <h3>{name}</h3>
-      <h4>{subheader}</h4>
       <p>{description}</p>
       <Link to={githubUrl} target="_blank">
         <img src={GithubIcon}></img>
