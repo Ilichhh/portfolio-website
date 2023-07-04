@@ -3,9 +3,13 @@ import GithubIcon from '../../public/github.svg';
 import LinkIcon from '../../public/link.svg';
 
 import styled from 'styled-components';
+import theme from '../theme';
 
 const Screenshot = styled.img`
-  width: 100%;
+  width: 600px;
+  height: 382px;
+  border: 4px solid ${theme.colors.textDark};
+  box-shadow: 8px 8px ${theme.colors.textDark};
 `;
 
 interface ProjectPreviewProps {
