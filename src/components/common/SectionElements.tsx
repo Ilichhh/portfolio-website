@@ -1,10 +1,11 @@
 import { PropsWithChildren } from 'react';
-import styled from 'styled-components';
 
-const Header = styled.h2<{ color: string }>`
+import styled from 'styled-components';
+import theme from '../../theme';
+
+const Header = styled.h2`
   margin: 0;
   font-size: 36px;
-  color: ${({ color }) => color};
 `;
 
 const ContentBox = styled.div`
@@ -17,12 +18,27 @@ const Wrapper = styled.div`
   gap: 10%;
 `;
 
-interface SectionHeaderProps extends PropsWithChildren {
-  color: string;
+const Section = styled.section<{ bgColor: string; height?: string }>`
+  height: ${({ height }) => height || 'auto'};
+  background-color: ${({ bgColor }) => bgColor};
+  border-bottom: 4px solid ${theme.colors.textDark};
+`;
+
+interface SectionWrapperProps extends PropsWithChildren {
+  bgColor: string;
+  height?: string;
 }
 
-export const SectionHeader = ({ color, children }: SectionHeaderProps) => {
-  return <Header color={color}>{children}</Header>;
+export const SectionWrapper = ({ children, bgColor, height }: SectionWrapperProps) => {
+  return (
+    <Section bgColor={bgColor} height={height}>
+      {children}
+    </Section>
+  );
+};
+
+export const SectionHeader = ({ children }: PropsWithChildren) => {
+  return <Header>{children}</Header>;
 };
 
 export const SectionContent = ({ children }: PropsWithChildren) => {

@@ -1,13 +1,14 @@
-import { Container, SectionHeader, SectionContent } from '../common';
+import { SectionWrapper, Container, SectionHeader, SectionContent } from '../common';
 
 import theme from '../../theme';
 
 export const ContactSection = () => {
   return (
-    <Container>
-      <SectionHeader color={theme.colors.green}>{`<contact>`}</SectionHeader>
-      <SectionContent></SectionContent>
-      <SectionHeader color={theme.colors.green}>{`</contact>`}</SectionHeader>
-    </Container>
+    <SectionWrapper bgColor={theme.colors.blue}>
+      <Container>
+        <SectionHeader>{`Just say hi`}</SectionHeader>
+        <SectionContent></SectionContent>
+      </Container>
+    </SectionWrapper>
   );
 };

@@ -1,6 +1,6 @@
 import {
+  SectionWrapper,
   Container,
-  SectionDark,
   SectionHeader,
   SectionContent,
   TwoColumnsWrapper,
@@ -25,14 +25,13 @@ export const ProjectsSection = () => {
   ));
 
   return (
-    <SectionDark>
+    <SectionWrapper bgColor={theme.colors.pink}>
       <Container>
-        <SectionHeader color={theme.colors.red}>{`<projects>`}</SectionHeader>
+        <SectionHeader>{`Featured projects`}</SectionHeader>
         <SectionContent>
           <TwoColumnsWrapper>{projectsList}</TwoColumnsWrapper>
         </SectionContent>
-        <SectionHeader color={theme.colors.red}>{`</projects>`}</SectionHeader>
       </Container>
-    </SectionDark>
+    </SectionWrapper>
   );
 };

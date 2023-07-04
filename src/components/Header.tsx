@@ -1,9 +1,7 @@
-import { useIsAtTop } from '../hooks/useIsAtTop';
-
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import theme from '../theme';
 
-const HeaderContainer = styled.header<{ sticky: boolean }>`
+const HeaderContainer = styled.header`
   position: sticky;
   top: 0;
   display: flex;
@@ -11,14 +9,9 @@ const HeaderContainer = styled.header<{ sticky: boolean }>`
   align-items: center;
   height: 70px;
   padding: 0 70px;
-  background-color: ${theme.colors.bgDark};
+  background-color: ${theme.colors.bgLight};
+  border-bottom: 4px solid ${theme.colors.textDark};
   transition: all 0.3s ease-in-out;
-  ${({ sticky }) =>
-    sticky &&
-    css`
-      z-index: 999;
-      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
-    `}
 `;
 
 const Nav = styled.nav`
@@ -33,11 +26,9 @@ const Menu = styled.ul`
 `;
 
 export const Header = () => {
-  const isAtTop = useIsAtTop();
-
   return (
-    <HeaderContainer sticky={!isAtTop}>
-      <a href="#">[I.S.]</a>
+    <HeaderContainer>
+      <a href="#">Ilya Shakurov</a>
       <Nav>
         <Menu>
           <li>

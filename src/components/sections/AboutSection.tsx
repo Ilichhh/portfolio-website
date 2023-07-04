@@ -1,4 +1,10 @@
-import { Container, SectionHeader, SectionContent, TwoColumnsWrapper } from '../common';
+import {
+  SectionWrapper,
+  Container,
+  SectionHeader,
+  SectionContent,
+  TwoColumnsWrapper,
+} from '../common';
 
 import styled from 'styled-components';
 import theme from '../../theme';
@@ -7,24 +13,18 @@ import { skillsListData } from '../../data/skillsList';
 
 const About = styled.div`
   flex: 1 1 0;
-  color: ${theme.colors.red};
-`;
-
-const Paragraph = styled.p`
-  margin: 0;
 `;
 
 const SkillsList = styled.pre`
   margin: 0;
   flex: 1 1 0;
-  color: ${theme.colors.green};
 `;
 
 export const AboutSection = () => {
   return (
-    <section>
+    <SectionWrapper bgColor={theme.colors.bgLight}>
       <Container>
-        <SectionHeader color={theme.colors.yellow}>{`<about>`}</SectionHeader>
+        <SectionHeader>{`About me`}</SectionHeader>
         <SectionContent>
           <TwoColumnsWrapper>
             <About>
@@ -71,8 +71,7 @@ export const AboutSection = () => {
             <SkillsList>{skillsListData}</SkillsList>
           </TwoColumnsWrapper>
         </SectionContent>
-        <SectionHeader color={theme.colors.yellow}>{`</about>`}</SectionHeader>
       </Container>
-    </section>
+    </SectionWrapper>
   );
 };

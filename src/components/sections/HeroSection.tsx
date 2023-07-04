@@ -1,18 +1,13 @@
 import { Link } from 'react-router-dom';
-import { Container } from '../common';
+import { SectionWrapper, Container } from '../common';
 
 import styled from 'styled-components';
 import theme from '../../theme';
 
-const Section = styled.section`
-  height: calc(100vh - 70px);
-  background-color: ${theme.colors.bgDark};
-`;
-
 const Header = styled.h1`
   margin: 80px 0 20px;
   font-size: 48px;
-  color: ${theme.colors.green};
+  color: ${theme.colors.textDark};
 `;
 
 const Subheader = styled.h2`
@@ -30,23 +25,18 @@ const Button = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40px;
-  width: 100px;
-  border: 1px solid ${theme.colors.important};
-  border-radius: 4px;
-  color: ${theme.colors.bgDark};
-  background-color: ${theme.colors.important};
+  height: 50px;
+  width: 120px;
+  border: 4px solid ${theme.colors.textDark};
+  color: ${theme.colors.textDark};
+  background-color: ${theme.colors.green};
+  box-shadow: 8px 8px ${theme.colors.textDark};
   cursor: pointer;
-`;
-
-const ButtonOutlined = styled(Button)`
-  color: ${theme.colors.important};
-  background-color: ${theme.colors.bgDark};
 `;
 
 export const HeroSection = () => {
   return (
-    <Section>
+    <SectionWrapper bgColor={theme.colors.yellow} height="calc(100vh - 70px)">
       <Container>
         <Header>
           Hi,
@@ -60,9 +50,9 @@ export const HeroSection = () => {
           <Button to="/cv.pdf" target="_blank">
             CV
           </Button>
-          <ButtonOutlined to="mailto:shakurov.ia@gmail.com">Contact</ButtonOutlined>
+          <Button to="mailto:shakurov.ia@gmail.com">Contact</Button>
         </ButtonsWrapper>
       </Container>
-    </Section>
+    </SectionWrapper>
   );
 };
