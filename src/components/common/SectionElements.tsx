@@ -4,10 +4,11 @@ import theme from '../../theme';
 export const SectionHeader = styled.h2`
   margin: 0;
   font-size: 36px;
+  text-align: center;
 `;
 
 export const SectionContent = styled.div`
-  padding: 60px 0 60px;
+  padding: 60px 0 0;
 `;
 
 export const TwoColumnsWrapper = styled.div`
