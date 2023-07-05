@@ -16,12 +16,18 @@ const ContactData = styled.div`
   flex: 1 1 0;
 `;
 
+const ContactDescription = styled.p`
+  margin-bottom: 50px;
+`;
+
 const ContactForm = styled.form`
   flex: 1 1 0;
 `;
 
 const SocialLinks = styled.ul`
-  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
   padding: 0;
 `;
 
@@ -36,16 +42,16 @@ export const ContactSection = () => {
   ));
 
   return (
-    <SectionWrapper bgColor={theme.colors.blue}>
+    <SectionWrapper id="contact" bgColor={theme.colors.blue}>
       <Container>
         <SectionHeader>{`Contact Me`}</SectionHeader>
         <SectionContent>
           <TwoColumnsWrapper>
             <ContactData>
-              <p>
+              <ContactDescription>
                 The best way to get in touch with me quickly is to use Telegram. With business
                 proposals you can write to e-mail. You can also subscribe to me on social networks.
-              </p>
+              </ContactDescription>
               <SocialLinks>{contactsList}</SocialLinks>
             </ContactData>
             <ContactForm></ContactForm>

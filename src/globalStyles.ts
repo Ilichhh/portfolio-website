@@ -8,6 +8,9 @@ import '@fontsource/work-sans';
 
 const GlobalStyles = createGlobalStyle`
   ${normalize}
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     font-family: "Work Sans";
     font-size: 24px;
@@ -15,8 +18,10 @@ const GlobalStyles = createGlobalStyle`
     color: ${theme.colors.textDark};
   }
   a {
-    text-decoration: none;
     color: ${theme.colors.textDark};
+  }
+  p {
+    margin: 0;
   }
   * {
     box-sizing: border-box;

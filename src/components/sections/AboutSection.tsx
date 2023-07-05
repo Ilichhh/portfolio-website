@@ -22,7 +22,7 @@ const SkillsList = styled.pre`
 
 export const AboutSection = () => {
   return (
-    <SectionWrapper bgColor={theme.colors.bgLight}>
+    <SectionWrapper id="about" bgColor={theme.colors.bgLight}>
       <Container>
         <SectionHeader>{`About me`}</SectionHeader>
         <SectionContent>

@@ -1,21 +1,21 @@
+import { Link } from 'react-router-dom';
+
 import styled from 'styled-components';
 import theme from '../theme';
 
 const HeaderContainer = styled.header`
-  position: sticky;
-  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 70px;
   padding: 0 70px;
-  background-color: ${theme.colors.bgLight};
+  background-color: ${theme.colors.purple};
   border-bottom: 4px solid ${theme.colors.textDark};
   transition: all 0.3s ease-in-out;
 `;
 
 const Nav = styled.nav`
-  width: 40%;
+  width: 30%;
 `;
 
 const Menu = styled.ul`
@@ -25,20 +25,30 @@ const Menu = styled.ul`
   font-size: 24px;
 `;
 
+const Logo = styled(Link)`
+  text-decoration: none;
+  font-weight: 600;
+`;
+
+const NavLink = styled.a`
+  text-decoration: none;
+  font-weight: 500;
+`;
+
 export const Header = () => {
   return (
     <HeaderContainer>
-      <a href="#">Ilya Shakurov</a>
+      <Logo to="/">Ilya Shakurov</Logo>
       <Nav>
         <Menu>
           <li>
-            <a href="#">about</a>
+            <NavLink href="#about">about</NavLink>
           </li>
           <li>
-            <a href="#">projects</a>
+            <NavLink href="#projects">projects</NavLink>
           </li>
           <li>
-            <a href="#">contact</a>
+            <NavLink href="#contact">contact</NavLink>
           </li>
         </Menu>
       </Nav>

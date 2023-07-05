@@ -7,6 +7,11 @@ const ListItem = styled.li`
   list-style: none;
 `;
 
+const StyledLink = styled(Link)`
+  display: flex;
+  gap: 15px;
+`;
+
 interface SocialListItemProps {
   icon: React.ElementType;
   link: string;
@@ -16,10 +21,10 @@ interface SocialListItemProps {
 export const SocialListItem = ({ icon: Icon, link, description }: SocialListItemProps) => {
   return (
     <ListItem>
-      <Link to={link} target="_blank">
+      <StyledLink to={link} target="_blank">
         <Icon />
         {description}
-      </Link>
+      </StyledLink>
     </ListItem>
   );
 };

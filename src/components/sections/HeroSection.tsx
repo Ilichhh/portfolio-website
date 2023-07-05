@@ -1,5 +1,4 @@
-import { Link } from 'react-router-dom';
-import { SectionWrapper, Container } from '../common';
+import { SectionWrapper, Container, LinkButton } from '../common';
 
 import styled from 'styled-components';
 import theme from '../../theme';
@@ -21,19 +20,6 @@ const ButtonsWrapper = styled.div`
   gap: 40px;
 `;
 
-const Button = styled(Link)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-  width: 120px;
-  border: 4px solid ${theme.colors.textDark};
-  color: ${theme.colors.textDark};
-  background-color: ${theme.colors.green};
-  box-shadow: 8px 8px ${theme.colors.textDark};
-  cursor: pointer;
-`;
-
 export const HeroSection = () => {
   return (
     <SectionWrapper bgColor={theme.colors.yellow} height="calc(100vh - 70px)">
@@ -47,10 +33,12 @@ export const HeroSection = () => {
         </Header>
         <Subheader>I’m a design oriented software engineer. Experienced in blockchain.</Subheader>
         <ButtonsWrapper>
-          <Button to="/cv.pdf" target="_blank">
+          <LinkButton color={theme.colors.green} to="/cv.pdf" target="_blank">
             CV
-          </Button>
-          <Button to="mailto:shakurov.ia@gmail.com">Contact</Button>
+          </LinkButton>
+          <LinkButton color={theme.colors.green} to="mailto:shakurov.ia@gmail.com">
+            Contact
+          </LinkButton>
         </ButtonsWrapper>
       </Container>
     </SectionWrapper>

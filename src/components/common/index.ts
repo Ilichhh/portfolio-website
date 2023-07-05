@@ -5,3 +5,4 @@ export {
   SectionContent,
   TwoColumnsWrapper,
 } from './SectionElements';
+export { LinkButton } from './Buttons';
