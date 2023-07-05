@@ -10,17 +10,28 @@ import styled from 'styled-components';
 import theme from '../../theme';
 
 import { skillsListData } from '../../data/skillsList';
+import { SkillBadge } from '../../components/common';
 
 const About = styled.div`
   flex: 1 1 0;
 `;
 
-const SkillsList = styled.pre`
-  margin: 0;
+const SkillsList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: start;
+  justify-content: flex-start;
+  height: 200px;
   flex: 1 1 0;
+  margin: 0;
 `;
 
 export const AboutSection = () => {
+  const SkillsListNodes = skillsListData.map((skill) => (
+    <SkillBadge key={skill}>{skill}</SkillBadge>
+  ));
+
   return (
     <SectionWrapper id="about" bgColor={theme.colors.bgLight}>
       <Container>
@@ -29,25 +40,14 @@ export const AboutSection = () => {
           <TwoColumnsWrapper>
             <About>
               <p>
-                When I was a kid, I liked most of all to assemble constructors, draw and solve
-                logical problems. In the first grade on September 1, I drew our summer house
-                according to all the laws of perspective. And being the best in the class in
-                mathematics, I went to the Olympiads.
+                I have a degree in architecture. I worked as a restoration architect for a while.
+                That experience strengthened my understanding of design and helped me develop my
+                spatial thinking.
               </p>
               <p>
-                My engineer parents advised me to choose the profession of architect as the best
-                combination of my strengths. That was how I got my first secondary, then higher
-                education. Then I worked as an architect restorer for some time. This experience
-                strengthened my understanding of design and helped me develop my spatial thinking.
-              </p>
-              <p>
-                After a while I became interested in online poker. Behind the simple rules of this
-                game there is incredible depth. And the one who is most inclined to critical
-                thinking wins. Years of playing professionally have helped me develop
-                self-discipline and mental toughness. Spending an entire day in front of the
-                computer looking for answers to logical problems has become the norm. And the
-                opportunity to travel and see 30 countries around the world has broadened my
-                horizons.
+                After a while I became interested in online poker. Behind the simple rules there is
+                an incredible depth to this game. Years of playing professionally helped me develop
+                self-discipline and mental stability.
               </p>
               <p>
                 At some point, after trying to write code and learning more about the modern
@@ -68,7 +68,7 @@ export const AboutSection = () => {
                 will definitely not happen in the near future, I will be in IT for a long time.
               </p>
             </About>
-            <SkillsList>{skillsListData}</SkillsList>
+            <SkillsList>{SkillsListNodes}</SkillsList>
           </TwoColumnsWrapper>
         </SectionContent>
       </Container>

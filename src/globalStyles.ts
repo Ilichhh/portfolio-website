@@ -21,7 +21,7 @@ const GlobalStyles = createGlobalStyle`
     color: ${theme.colors.textDark};
   }
   p {
-    margin: 0;
+    margin-top: 0;
   }
   * {
     box-sizing: border-box;

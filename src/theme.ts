@@ -4,6 +4,7 @@ const theme = {
     bgDark: '#1c1c1c',
     textLight: '#747474',
     textDark: '#000000',
+    textInactive: '#595959',
     yellow: '#FDFD96',
     green: '#BAFCA2',
     pink: '#FFC0CB',

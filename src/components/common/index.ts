@@ -6,3 +6,4 @@ export {
   TwoColumnsWrapper,
 } from './SectionElements';
 export { LinkButton } from './Buttons';
+export { SkillBadge } from './Badges';

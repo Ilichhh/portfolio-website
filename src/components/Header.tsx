@@ -9,7 +9,7 @@ const HeaderContainer = styled.header`
   align-items: center;
   height: 70px;
   padding: 0 70px;
-  background-color: ${theme.colors.purple};
+  background-color: ${theme.colors.bgLight};
   border-bottom: 4px solid ${theme.colors.textDark};
   transition: all 0.3s ease-in-out;
 `;
