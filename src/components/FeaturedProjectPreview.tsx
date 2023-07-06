@@ -1,25 +1,18 @@
-import { Link } from 'react-router-dom';
-import GithubIcon from '../../public/github.svg';
-import LinkIcon from '../../public/link.svg';
+import { LinkButton } from './common';
 
 import { ProjectPreviewData } from '../types';
 
 import styled from 'styled-components';
 import theme from '../theme';
-import { LinkButton } from './common';
 
 const Wrapper = styled.div`
   display: flex;
-`;
-
-const Image = styled.img`
-  flex: 1 1 0;
-  width: 50%;
+  gap: 50px;
+  height: 426px;
 `;
 
 const Info = styled.div`
   flex: 1 1 0;
-  padding: 50px;
 `;
 
 const LinksWrapper = styled.div`
@@ -29,34 +22,79 @@ const LinksWrapper = styled.div`
   gap: 10px;
 `;
 
+const ScreenshotsWrapper = styled.div`
+  flex: 1 1 0;
+  position: relative;
+  cursor: pointer;
+  transition: 0.2s all;
+  &:hover {
+    opacity: 0.5;
+  }
+`;
+
+const DesktopScreenshot = styled.img<{ pos: 'left' | 'right' }>`
+  position: absolute;
+  top: 0;
+  ${({ pos }) => (pos === 'left' ? 'left: 0' : 'right: 0')};
+  width: 90%;
+  border: 4px solid ${theme.colors.textDark};
+  box-shadow: 6px 6px ${theme.colors.textDark};
+`;
+
+const MobileScreenshot = styled.img<{ pos: 'left' | 'right' }>`
+  position: absolute;
+  top: 70px;
+  ${({ pos }) => (pos === 'left' ? 'right: 0' : 'left: 0')};
+  width: 25%;
+  border: 4px solid ${theme.colors.textDark};
+  box-shadow: 6px 6px ${theme.colors.textDark};
+`;
+
+const Header = styled.h3`
+  margin-top: 50px;
+`;
+
+const Description = styled.p`
+  margin-bottom: 30px;
+`;
+
 interface ProjectPreviewProps {
   data: ProjectPreviewData;
   imagePositioning: 'left' | 'right';
 }
 
 export const FeaturedProjectPreview = ({ data, imagePositioning }: ProjectPreviewProps) => {
-  const { name, description, imageUrl, githubUrl, deployUrl, caseStudyUrl } = data;
+  const { name, description, desktopImageUrl, mobileImageUrl, githubUrl, deployUrl, caseStudyUrl } =
+    data;
+
+  const screenshots = (
+    <ScreenshotsWrapper>
+      <DesktopScreenshot
+        src={desktopImageUrl}
+        pos={imagePositioning}
+        alt="Project desktop preview"
+      ></DesktopScreenshot>
+      <MobileScreenshot
+        src={mobileImageUrl}
+        pos={imagePositioning}
+        alt="Project mobile preview"
+      ></MobileScreenshot>
+    </ScreenshotsWrapper>
+  );
+
   return (
     <Wrapper>
-      {imagePositioning === 'left' && <Image src={imageUrl} alt="Project preview"></Image>}
+      {imagePositioning === 'left' && screenshots}
       <Info>
-        <h3>{name}</h3>
-        <p>{description}</p>
+        <Header>{name}</Header>
+        <Description>{description}</Description>
         <LinksWrapper>
-          <LinkButton color={theme.colors.purple} width={230} to={caseStudyUrl}>
-            full case study
+          <LinkButton color={theme.colors.purple} width={180} to={caseStudyUrl}>
+            Case study
           </LinkButton>
-          <LinksWrapper>
-            <Link to={githubUrl} target="_blank">
-              <img src={GithubIcon}></img>
-            </Link>
-            <Link to={deployUrl} target="_blank">
-              <img src={LinkIcon}></img>
-            </Link>
-          </LinksWrapper>
         </LinksWrapper>
       </Info>
-      {imagePositioning === 'right' && <Image src={imageUrl} alt="Project preview"></Image>}
+      {imagePositioning === 'right' && screenshots}
     </Wrapper>
   );
 };

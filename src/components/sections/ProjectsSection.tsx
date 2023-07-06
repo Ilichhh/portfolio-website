@@ -44,8 +44,12 @@ export const ProjectsSection = () => {
           <FeaturedProjectsWrapper>{projectsList}</FeaturedProjectsWrapper>
           {isMoreProjectsOpen && <MoreProjectsWrapper>coming soon</MoreProjectsWrapper>}
           <ButtonsWrapper>
-            <Button centered onClick={() => setIsMoreProjectsOpen(!isMoreProjectsOpen)}>
-              {isMoreProjectsOpen ? 'see less' : 'see more'}
+            <Button
+              color={theme.colors.green}
+              centered
+              onClick={() => setIsMoreProjectsOpen(!isMoreProjectsOpen)}
+            >
+              {isMoreProjectsOpen ? 'See less' : 'See more'}
             </Button>
           </ButtonsWrapper>
         </SectionContent>

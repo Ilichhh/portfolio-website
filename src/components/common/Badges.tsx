@@ -8,8 +8,6 @@ export const SkillBadge = styled.span<{ color?: string; width?: string }>`
   height: 50px;
   width: ${({ width }) => width}px;
   padding: 20px;
-  border: 4px solid ${theme.colors.textInactive};
-  color: ${theme.colors.textDark};
-  background-color: ${({ color }) => color};
-  box-shadow: 6px 6px ${theme.colors.textInactive};
+  color: ${theme.colors.textLight};
+  background-color: ${theme.colors.bgDark};
 `;
