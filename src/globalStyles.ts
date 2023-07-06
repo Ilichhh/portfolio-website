@@ -12,7 +12,7 @@ const GlobalStyles = createGlobalStyle`
     scroll-behavior: smooth;
   }
   body {
-    font-family: "Work Sans";
+    font-family: "Work Sans", Sans-Serif;
     font-size: 24px;
     background-color: ${theme.colors.bgLight};
     color: ${theme.colors.textDark};
