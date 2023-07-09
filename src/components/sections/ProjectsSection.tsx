@@ -39,7 +39,7 @@ export const ProjectsSection = () => {
   return (
     <SectionWrapper id="projects" bgColor={theme.colors.pink}>
       <Container>
-        <SectionHeader>{`Featured projects`}</SectionHeader>
+        <SectionHeader>Featured projects</SectionHeader>
         <SectionContent>
           <FeaturedProjectsWrapper>{projectsList}</FeaturedProjectsWrapper>
           {isMoreProjectsOpen && <MoreProjectsWrapper>coming soon</MoreProjectsWrapper>}

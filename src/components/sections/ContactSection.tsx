@@ -80,7 +80,7 @@ export const ContactSection = () => {
   return (
     <SectionWrapper id="contact" bgColor={theme.colors.blue}>
       <Container>
-        <SectionHeader>{`Contact Me`}</SectionHeader>
+        <SectionHeader>Contact Me</SectionHeader>
         <SectionContent>
           <TwoColumnsWrapper>
             <ContactData>

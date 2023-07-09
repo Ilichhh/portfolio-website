@@ -35,7 +35,7 @@ export const AboutSection = () => {
   return (
     <SectionWrapper id="about" bgColor={theme.colors.bgLight}>
       <Container>
-        <SectionHeader>{`About me`}</SectionHeader>
+        <SectionHeader>About me</SectionHeader>
         <SectionContent>
           <TwoColumnsWrapper>
             <About>

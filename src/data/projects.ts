@@ -6,7 +6,7 @@ export const projectsData = [
     desktopImageUrl: '/messenger_desktop.png',
     mobileImageUrl: '/messenger_mobile.png',
     githubUrl: 'https://github.com/Ilichhh/telegram-clone',
-    deployUrl: 'https://netelegram.netlify.app/register',
+    deployUrl: 'https://netelegram.netlify.app',
     caseStudyUrl: '/messenger',
   },
   {
@@ -16,7 +16,7 @@ export const projectsData = [
     desktopImageUrl: '/graphiql_desktop.png',
     mobileImageUrl: '/graphiql_mobile.png',
     githubUrl: 'https://github.com/Ilichhh/graphiql-app',
-    deployUrl: 'https://graphiql-app.netlify.app/',
+    deployUrl: 'https://graphiql-app.netlify.app',
     caseStudyUrl: '/graphiql',
   },
 ];
