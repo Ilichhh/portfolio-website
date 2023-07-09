@@ -9,8 +9,7 @@ const HeaderContainer = styled.header`
   align-items: center;
   height: 70px;
   padding: 0 70px;
-  background-color: ${theme.colors.bgLight};
-  border-bottom: 4px solid ${theme.colors.textDark};
+  background-color: ${theme.colors.yellow};
   transition: all 0.3s ease-in-out;
 `;
 
@@ -30,7 +29,29 @@ const Logo = styled(Link)`
   font-weight: 600;
 `;
 
+const MenuItem = styled.li`
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 12px;
+    background-color: ${theme.colors.blue};
+    transition: 0.2s all;
+  }
+  &:hover {
+    &:before {
+      width: 0;
+    }
+  }
+`;
+
 const NavLink = styled.a`
+  position: relative;
+  z-index: 10;
   text-decoration: none;
   font-weight: 500;
 `;
@@ -41,15 +62,15 @@ export const Header = () => {
       <Logo to="/">Ilya Shakurov</Logo>
       <Nav>
         <Menu>
-          <li>
+          <MenuItem>
             <NavLink href="#about">about</NavLink>
-          </li>
-          <li>
+          </MenuItem>
+          <MenuItem>
             <NavLink href="#projects">projects</NavLink>
-          </li>
-          <li>
+          </MenuItem>
+          <MenuItem>
             <NavLink href="#contact">contact</NavLink>
-          </li>
+          </MenuItem>
         </Menu>
       </Nav>
     </HeaderContainer>
