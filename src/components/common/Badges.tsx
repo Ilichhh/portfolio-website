@@ -5,7 +5,7 @@ export const SkillBadge = styled.span<{ color?: string; width?: string }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
+  height: 44px;
   width: ${({ width }) => width}px;
   padding: 20px;
   color: ${theme.colors.textLight};

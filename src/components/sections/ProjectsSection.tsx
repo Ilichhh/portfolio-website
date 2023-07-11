@@ -32,7 +32,7 @@ export const ProjectsSection = () => {
     <FeaturedProjectPreview
       key={project.name}
       data={project}
-      imagePositioning={index % 2 === 0 ? 'left' : 'right'}
+      imagePositioning={index % 2 !== 0 ? 'left' : 'right'}
     />
   ));
 

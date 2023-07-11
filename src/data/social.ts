@@ -13,7 +13,7 @@ export const socialData = [
   {
     name: 'linkedin',
     icon: LinkedInIcon,
-    link: 'https://www.linkedin.com/in/ilya-shakurov-961563214/',
+    link: 'https://www.linkedin.com/in/ilya-shakurov',
     description: 'Connect with me',
   },
   {

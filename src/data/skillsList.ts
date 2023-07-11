@@ -1,7 +1,8 @@
 export const skillsListData = [
-  'HTML5',
-  'CSS3',
+  'HTML',
+  'CSS',
   'SASS',
+  'BEM',
   'JavaScript',
   'TypeScript',
   'React JS',
