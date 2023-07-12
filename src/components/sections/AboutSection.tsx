@@ -1,4 +1,4 @@
-/* eslint-disable react/no-unescaped-entities */
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import {
@@ -8,15 +8,33 @@ import {
   SectionContent,
   TwoColumnsWrapper,
 } from '../common';
+import { SkillBadge } from '../../components/common';
 
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import theme from '../../theme';
 
 import { skillsListData } from '../../data/skillsList';
-import { SkillBadge } from '../../components/common';
 
-const About = styled.div`
+const About = styled.div<{ expanded: boolean }>`
+  position: relative;
   flex: 1 1 0;
+  height: ${({ expanded }) => (expanded ? '1010px' : '530px')};
+  overflow: hidden;
+  transition: 0.2s ease all;
+  ${({ expanded }) =>
+    !expanded &&
+    css`
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0), ${theme.colors.green});
+        pointer-events: none;
+      }
+    `};
 `;
 
 const SkillsList = styled.div`
@@ -37,7 +55,14 @@ const Photo = styled.img`
   filter: drop-shadow(10px 10px ${theme.colors.textDark});
 `;
 
+const Expander = styled.span`
+  font-weight: 600;
+  cursor: pointer;
+`;
+
 export const AboutSection = () => {
+  const [expanded, setExpanded] = useState(false);
+
   const SkillsListNodes = skillsListData.map((skill) => (
     <SkillBadge key={skill}>{skill}</SkillBadge>
   ));
@@ -51,8 +76,8 @@ export const AboutSection = () => {
             <Photo src="./photo_about.png" />
             <div>
               <SkillsList>{SkillsListNodes}</SkillsList>
-              <About>
-                <h3>Hi there! I'm Ilya and I write code.</h3>
+              <About expanded={expanded}>
+                <h3>Hi there! I&apos;m Ilya and I write code.</h3>
                 <p>
                   Since childhood, I have been captivated by building with constructors, drawing,
                   and solving logical problems. To maximize my strengths, I chose a career as an
@@ -88,6 +113,9 @@ export const AboutSection = () => {
                   of a team leader, responsible for organizing the development processes.
                 </p>
               </About>
+              <Expander onClick={() => setExpanded(!expanded)}>
+                {expanded ? 'collapse' : 'read more'}
+              </Expander>
             </div>
           </TwoColumnsWrapper>
         </SectionContent>

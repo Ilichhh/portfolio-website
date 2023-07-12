@@ -14,6 +14,7 @@ export const SectionContent = styled.div`
 export const TwoColumnsWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   gap: 10%;
 `;
 
