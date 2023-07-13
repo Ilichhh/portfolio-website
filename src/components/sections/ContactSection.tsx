@@ -7,6 +7,7 @@ import {
   SectionHeader,
   SectionContent,
   TwoColumnsWrapper,
+  StyledLink,
 } from '../common';
 import { Button } from '../common/Buttons';
 
@@ -85,8 +86,16 @@ export const ContactSection = () => {
           <TwoColumnsWrapper>
             <ContactData>
               <ContactDescription>
-                The best way to get in touch with me quickly is to use Telegram. With business
-                proposals you can write to e-mail. You can also subscribe to me on social networks.
+                The best way to quickly get in touch with me is through{' '}
+                <StyledLink to="https://t.me/ilichhh" color={theme.colors.yellow}>
+                  Telegram
+                </StyledLink>
+                . For business proposals, you can reach me via{' '}
+                <StyledLink to="mailto:shakurov.ia@gmail.com" color={theme.colors.yellow}>
+                  email
+                </StyledLink>
+                . I speak Russian and English. Additionally, feel free to subscribe to my social
+                networks.
               </ContactDescription>
               <SocialLinks>{contactsList}</SocialLinks>
             </ContactData>

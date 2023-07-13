@@ -3,13 +3,18 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import theme from '../theme';
 
-const HeaderContainer = styled.header`
+const HeaderWrapper = styled.header`
+  background-color: ${theme.colors.yellow};
+`;
+
+const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 70px;
-  padding: 0 70px;
-  background-color: ${theme.colors.yellow};
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
   transition: all 0.3s ease-in-out;
 `;
 
@@ -25,8 +30,32 @@ const Menu = styled.ul`
 `;
 
 const Logo = styled(Link)`
+  position: relative;
+  height: 70px;
+  padding: 20px;
+  text-transform: uppercase;
   text-decoration: none;
   font-weight: 600;
+  background-color: ${theme.colors.bgDark};
+  color: ${theme.colors.textLight};
+  transition: 0.2s all;
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 22px;
+    left: 50%;
+    width: 84%;
+    height: 2px;
+    background-color: ${theme.colors.textLight};
+    transform: translateX(-50%);
+    transition: 0.2s all;
+  }
+  &:hover {
+    color: ${theme.colors.pink};
+    &:before {
+      background-color: ${theme.colors.pink};
+    }
+  }
 `;
 
 const MenuItem = styled.li`
@@ -35,16 +64,14 @@ const MenuItem = styled.li`
     content: '';
     position: absolute;
     bottom: 0;
-    left: 0;
-    z-index: 1;
-    width: 100%;
-    height: 12px;
-    background-color: ${theme.colors.blue};
-    transition: 0.2s all;
+    width: 0;
+    height: 2px;
+    background-color: ${theme.colors.textDark};
+    transition: 0.2s all ease-out;
   }
   &:hover {
     &:before {
-      width: 0;
+      width: 100%;
     }
   }
 `;
@@ -53,26 +80,28 @@ const NavLink = styled.a`
   position: relative;
   z-index: 10;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
 `;
 
 export const Header = () => {
   return (
-    <HeaderContainer>
-      <Logo to="/">Ilya Shakurov</Logo>
-      <Nav>
-        <Menu>
-          <MenuItem>
-            <NavLink href="#about">about</NavLink>
-          </MenuItem>
-          <MenuItem>
-            <NavLink href="#projects">projects</NavLink>
-          </MenuItem>
-          <MenuItem>
-            <NavLink href="#contact">contact</NavLink>
-          </MenuItem>
-        </Menu>
-      </Nav>
-    </HeaderContainer>
+    <HeaderWrapper>
+      <HeaderContainer>
+        <Logo to="/">Ilya Shakurov</Logo>
+        <Nav>
+          <Menu>
+            <MenuItem>
+              <NavLink href="#about">about</NavLink>
+            </MenuItem>
+            <MenuItem>
+              <NavLink href="#projects">projects</NavLink>
+            </MenuItem>
+            <MenuItem>
+              <NavLink href="#contact">contact</NavLink>
+            </MenuItem>
+          </Menu>
+        </Nav>
+      </HeaderContainer>
+    </HeaderWrapper>
   );
 };

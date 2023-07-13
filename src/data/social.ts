@@ -8,24 +8,24 @@ export const socialData = [
     name: 'email',
     icon: EmailIcon,
     link: 'mailto:shakurov.ia@gmail.com',
-    description: 'Send a business proposal',
+    description: 'shakurov.ia@gmail.com',
   },
   {
     name: 'linkedin',
     icon: LinkedInIcon,
     link: 'https://www.linkedin.com/in/ilya-shakurov',
-    description: 'Connect with me',
+    description: 'linkedin.com/in/ilya-shakurov',
   },
   {
     name: 'github',
     icon: GitHubIcon,
     link: 'https://github.com/Ilichhh',
-    description: 'Check out my code',
+    description: 'github.com/Ilichhh',
   },
   {
     name: 'telegram',
     icon: TelegramIcon,
     link: 'https://t.me/ilichhh',
-    description: 'Send me an instant message',
+    description: 't.me/ilichhh',
   },
 ];
