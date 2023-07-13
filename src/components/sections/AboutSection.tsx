@@ -8,7 +8,7 @@ import {
   SectionContent,
   TwoColumnsWrapper,
 } from '../common';
-import { SkillBadge } from '../../components/common';
+import { TechBadge } from '../../components/common';
 
 import styled, { css } from 'styled-components';
 import theme from '../../theme';
@@ -44,9 +44,6 @@ const SkillsList = styled.div`
   align-items: start;
   justify-content: flex-start;
   height: 180px;
-  flex: 1 1 0;
-  margin: 0;
-  margin-bottom: 20px;
 `;
 
 const Photo = styled.img`
@@ -63,9 +60,7 @@ const Expander = styled.span`
 export const AboutSection = () => {
   const [expanded, setExpanded] = useState(false);
 
-  const SkillsListNodes = skillsListData.map((skill) => (
-    <SkillBadge key={skill}>{skill}</SkillBadge>
-  ));
+  const SkillsListNodes = skillsListData.map((skill) => <TechBadge key={skill}>{skill}</TechBadge>);
 
   return (
     <SectionWrapper id="about" bgColor={theme.colors.green}>

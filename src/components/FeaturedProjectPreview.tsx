@@ -1,26 +1,9 @@
-import { LinkButton } from './common';
+import { LinkButton, TechBadge, TwoColumnsWrapper } from './common';
 
 import { ProjectPreviewData } from '../types';
 
 import styled from 'styled-components';
 import theme from '../theme';
-
-const Wrapper = styled.div`
-  display: flex;
-  gap: 50px;
-  height: 426px;
-`;
-
-const Info = styled.div`
-  flex: 1 1 0;
-`;
-
-const LinksWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-`;
 
 const ScreenshotsWrapper = styled.div`
   flex: 1 1 0;
@@ -32,30 +15,43 @@ const ScreenshotsWrapper = styled.div`
   }
 `;
 
-const DesktopScreenshot = styled.img<{ pos: 'left' | 'right' }>`
-  position: absolute;
-  top: 0;
-  ${({ pos }) => (pos === 'left' ? 'left: 0' : 'right: 0')};
-  width: 90%;
+const DesktopScreenshot = styled.img`
+  width: 100%;
   border: 4px solid ${theme.colors.textDark};
   box-shadow: 6px 6px ${theme.colors.textDark};
 `;
 
 const MobileScreenshot = styled.img<{ pos: 'left' | 'right' }>`
   position: absolute;
-  top: 70px;
-  ${({ pos }) => (pos === 'left' ? 'right: 0' : 'left: 0')};
-  width: 25%;
+  top: 80px;
+  ${({ pos }) => (pos === 'left' ? 'right: -60px' : 'left: -60px')};
+  width: 28%;
   border: 4px solid ${theme.colors.textDark};
   box-shadow: 6px 6px ${theme.colors.textDark};
 `;
 
+const Info = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  flex: 1 1 0;
+`;
+
 const Header = styled.h3`
-  margin-top: 50px;
+  margin: 20px 0 0;
+`;
+
+const SkillsList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: start;
+  justify-content: flex-start;
 `;
 
 const Description = styled.p`
-  margin-bottom: 30px;
+  margin: 0;
 `;
 
 interface ProjectPreviewProps {
@@ -64,16 +60,18 @@ interface ProjectPreviewProps {
 }
 
 export const FeaturedProjectPreview = ({ data, imagePositioning }: ProjectPreviewProps) => {
-  const { name, description, desktopImageUrl, mobileImageUrl, githubUrl, deployUrl, caseStudyUrl } =
+  const { name, stack, description, desktopImageUrl, mobileImageUrl, deployUrl, caseStudyUrl } =
     data;
+
+  const TechList = stack.map((skill) => (
+    <TechBadge small key={skill}>
+      {skill}
+    </TechBadge>
+  ));
 
   const screenshots = (
     <ScreenshotsWrapper>
-      <DesktopScreenshot
-        src={desktopImageUrl}
-        pos={imagePositioning}
-        alt="Project desktop preview"
-      ></DesktopScreenshot>
+      <DesktopScreenshot src={desktopImageUrl} alt="Project desktop preview"></DesktopScreenshot>
       <MobileScreenshot
         src={mobileImageUrl}
         pos={imagePositioning}
@@ -83,18 +81,17 @@ export const FeaturedProjectPreview = ({ data, imagePositioning }: ProjectPrevie
   );
 
   return (
-    <Wrapper>
+    <TwoColumnsWrapper>
       {imagePositioning === 'left' && screenshots}
       <Info>
         <Header>{name}</Header>
+        <SkillsList>{TechList}</SkillsList>
         <Description>{description}</Description>
-        <LinksWrapper>
-          <LinkButton color={theme.colors.purple} width={180} to={caseStudyUrl}>
-            Case study
-          </LinkButton>
-        </LinksWrapper>
+        <LinkButton color={theme.colors.purple} width={180} to={caseStudyUrl}>
+          Case study
+        </LinkButton>
       </Info>
       {imagePositioning === 'right' && screenshots}
-    </Wrapper>
+    </TwoColumnsWrapper>
   );
 };

@@ -12,7 +12,7 @@ import { projectsData } from '../../data/projects';
 const FeaturedProjectsWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 120px;
   margin-bottom: 50px;
 `;
 
@@ -22,7 +22,8 @@ const MoreProjectsWrapper = styled.div`
 `;
 
 const ButtonsWrapper = styled.div`
-  margin: 0 auto;
+  display: none;
+  margin: 120px auto 0;
 `;
 
 export const ProjectsSection = () => {
