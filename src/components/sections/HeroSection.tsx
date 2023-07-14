@@ -54,7 +54,7 @@ export const HeroSection = () => {
           <Header>
             Hi!
             <br />
-            I&apos;m Ilya,
+            I&apos;m Ilia,
             <br />
             Frontend Developer
           </Header>

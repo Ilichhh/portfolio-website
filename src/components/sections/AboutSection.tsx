@@ -72,7 +72,7 @@ export const AboutSection = () => {
             <div>
               <SkillsList>{SkillsListNodes}</SkillsList>
               <About expanded={expanded}>
-                <h3>Hi there! I&apos;m Ilya and I write code.</h3>
+                <h3>Hi there! I&apos;m Ilia and I write code.</h3>
                 <p>
                   Since childhood, I have been captivated by building with constructors, drawing,
                   and solving logical problems. To maximize my strengths, I chose a career as an

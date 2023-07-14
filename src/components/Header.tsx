@@ -87,7 +87,7 @@ export const Header = () => {
   return (
     <HeaderWrapper>
       <HeaderContainer>
-        <Logo to="/">Ilya Shakurov</Logo>
+        <Logo to="/">Ilia Shakurov</Logo>
         <Nav>
           <Menu>
             <MenuItem>
