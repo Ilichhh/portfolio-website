@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useParallax } from 'react-scroll-parallax';
 
 import { LinkButton, TechBadge, TwoColumnsWrapper } from './common';
 
@@ -11,7 +12,6 @@ const DesktopScreenshot = styled.img`
   width: 100%;
   border: 4px solid ${theme.colors.textDark};
   box-shadow: 6px 6px ${theme.colors.textDark};
-  transition: 0.2s all;
 `;
 
 const MobileScreenshot = styled.img<{ pos: 'left' | 'right' }>`
@@ -21,7 +21,6 @@ const MobileScreenshot = styled.img<{ pos: 'left' | 'right' }>`
   width: 28%;
   border: 4px solid ${theme.colors.textDark};
   box-shadow: 6px 6px ${theme.colors.textDark};
-  transition: 0.2s all;
 `;
 
 const DeployLink = styled.div`
@@ -44,8 +43,6 @@ const ScreenshotsWrapper = styled(Link)`
   &:hover {
     ${DesktopScreenshot}, ${MobileScreenshot} {
       filter: blur(3px);
-      transform: translate(-4px, -4px);
-      box-shadow: 10px 10px;
     }
     ${DeployLink} {
       opacity: 1;
@@ -86,6 +83,8 @@ export const FeaturedProjectPreview = ({ data, imagePositioning }: ProjectPrevie
   const { name, stack, description, desktopImageUrl, mobileImageUrl, deployUrl, caseStudyUrl } =
     data;
 
+  const { ref } = useParallax<HTMLImageElement>({ speed: 5 });
+
   const TechList = stack.map((skill) => (
     <TechBadge small key={skill}>
       {skill}
@@ -99,6 +98,7 @@ export const FeaturedProjectPreview = ({ data, imagePositioning }: ProjectPrevie
         src={mobileImageUrl}
         pos={imagePositioning}
         alt="Project mobile preview"
+        ref={ref}
       ></MobileScreenshot>
       <DeployLink>Open Deploy</DeployLink>
     </ScreenshotsWrapper>
