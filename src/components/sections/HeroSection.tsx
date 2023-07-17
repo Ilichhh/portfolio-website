@@ -16,12 +16,19 @@ const Header = styled.h1`
   margin: 0;
   font-size: 60px;
   color: ${theme.colors.textDark};
+  @media (max-width: 997px) {
+    font-size: 48px;
+  }
 `;
 
 const Subheader = styled.h2`
-  width: 48%;
+  width: 70%;
+  max-width: 674px;
   font-size: 24px;
   margin-bottom: 40px;
+  @media (max-width: 997px) {
+    width: 85%;
+  }
 `;
 
 const ButtonsWrapper = styled.div`

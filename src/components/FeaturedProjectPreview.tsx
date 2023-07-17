@@ -1,17 +1,30 @@
 import { Link } from 'react-router-dom';
 import { useParallax } from 'react-scroll-parallax';
 
-import { LinkButton, TechBadge, TwoColumnsWrapper } from './common';
+import { LinkButton, TechBadge } from './common';
 
 import { ProjectPreviewData } from '../types';
 
 import styled from 'styled-components';
 import theme from '../theme';
 
+const ProjectPreview = styled.div<{ pos: 'left' | 'right' }>`
+  display: flex;
+  flex-direction: ${({ pos }) => (pos === 'left' ? 'row-reverse' : 'row')};
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10%;
+  @media (max-width: 997px) {
+    flex-direction: column;
+  }
+`;
 const DesktopScreenshot = styled.img`
   width: 100%;
   border: 4px solid ${theme.colors.textDark};
   box-shadow: 6px 6px ${theme.colors.textDark};
+  @media (max-width: 997px) {
+    width: 88%;
+  }
 `;
 
 const MobileScreenshot = styled.img<{ pos: 'left' | 'right' }>`
@@ -21,6 +34,10 @@ const MobileScreenshot = styled.img<{ pos: 'left' | 'right' }>`
   width: 28%;
   border: 4px solid ${theme.colors.textDark};
   box-shadow: 6px 6px ${theme.colors.textDark};
+  @media (max-width: 997px) {
+    right: 0;
+    left: auto;
+  }
 `;
 
 const DeployLink = styled.div`
@@ -40,13 +57,16 @@ const DeployLink = styled.div`
 const ScreenshotsWrapper = styled(Link)`
   position: relative;
   flex: 1 1 0;
-  &:hover {
-    ${DesktopScreenshot}, ${MobileScreenshot} {
-      filter: blur(3px);
-    }
-    ${DeployLink} {
-      opacity: 1;
-    }
+  // &:hover {
+  //   ${DesktopScreenshot}, ${MobileScreenshot} {
+  //     filter: blur(3px);
+  //   }
+  //   ${DeployLink} {
+  //     opacity: 1;
+  //   }
+  // }
+  @media (max-width: 997px) {
+    margin-top: 40px;
   }
 `;
 
@@ -91,22 +111,8 @@ export const FeaturedProjectPreview = ({ data, imagePositioning }: ProjectPrevie
     </TechBadge>
   ));
 
-  const screenshots = (
-    <ScreenshotsWrapper to={deployUrl} target="_blank">
-      <DesktopScreenshot src={desktopImageUrl} alt="Project desktop preview"></DesktopScreenshot>
-      <MobileScreenshot
-        src={mobileImageUrl}
-        pos={imagePositioning}
-        alt="Project mobile preview"
-        ref={ref}
-      ></MobileScreenshot>
-      <DeployLink>Open Deploy</DeployLink>
-    </ScreenshotsWrapper>
-  );
-
   return (
-    <TwoColumnsWrapper>
-      {imagePositioning === 'left' && screenshots}
+    <ProjectPreview pos={imagePositioning}>
       <Info>
         <Header>{name}</Header>
         <SkillsList>{TechList}</SkillsList>
@@ -115,7 +121,16 @@ export const FeaturedProjectPreview = ({ data, imagePositioning }: ProjectPrevie
           Case study
         </LinkButton>
       </Info>
-      {imagePositioning === 'right' && screenshots}
-    </TwoColumnsWrapper>
+      <ScreenshotsWrapper to={deployUrl} target="_blank">
+        <DesktopScreenshot src={desktopImageUrl} alt="Project desktop preview"></DesktopScreenshot>
+        <MobileScreenshot
+          src={mobileImageUrl}
+          pos={imagePositioning}
+          alt="Project mobile preview"
+          ref={ref}
+        ></MobileScreenshot>
+        <DeployLink>Open Deploy</DeployLink>
+      </ScreenshotsWrapper>
+    </ProjectPreview>
   );
 };

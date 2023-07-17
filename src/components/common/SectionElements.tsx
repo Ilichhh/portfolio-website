@@ -9,6 +9,9 @@ export const SectionHeader = styled.h2`
 
 export const SectionContent = styled.div`
   padding: 60px 0 0;
+  @media (max-width: 997px) {
+    padding: 40px 0 0;
+  }
 `;
 
 export const TwoColumnsWrapper = styled.div`
@@ -16,6 +19,9 @@ export const TwoColumnsWrapper = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   gap: 10%;
+  @media (max-width: 997px) {
+    flex-direction: column;
+  }
 `;
 
 export const SectionWrapper = styled.section<{ bgColor: string; height?: string }>`

@@ -27,6 +27,9 @@ const ContactData = styled.div`
 
 const ContactDescription = styled.p`
   margin-bottom: 50px;
+  @media (max-width: 997px) {
+    margin-bottom: 20px;
+  }
 `;
 
 const SocialLinks = styled.ul`
@@ -34,6 +37,9 @@ const SocialLinks = styled.ul`
   flex-direction: column;
   gap: 15px;
   padding: 0;
+  @media (max-width: 997px) {
+    margin-bottom: 40px;
+  }
 `;
 
 const ContactForm = styled.form`
@@ -41,6 +47,13 @@ const ContactForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 25px;
+  @media (max-width: 997px) {
+    width: 80%;
+    margin: 0 auto;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const Input = styled.input`
@@ -79,7 +92,7 @@ export const ContactSection = () => {
   };
 
   return (
-    <SectionWrapper id="contact" bgColor={theme.colors.blue}>
+    <SectionWrapper id="contact" bgColor={theme.colors.green}>
       <Container>
         <SectionHeader>Contact Me</SectionHeader>
         <SectionContent>

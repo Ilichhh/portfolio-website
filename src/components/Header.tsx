@@ -1,32 +1,63 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useIsAtTop } from '../hooks/useIsAtTop';
 
-import styled from 'styled-components';
+import { Burger } from './Burger';
+
+import styled, { css } from 'styled-components';
 import theme from '../theme';
 
-const HeaderWrapper = styled.header`
+const HeaderWrapper = styled.header<{ sticky: boolean }>`
   background-color: ${theme.colors.yellow};
+  position: sticky;
+  @media (max-width: 768px) {
+    ${({ sticky }) =>
+      sticky &&
+      css`
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        // border-bottom: 4px solid ${theme.colors.textDark};
+      `}
+  }
 `;
 
 const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 70px;
   max-width: 1440px;
+  height: 70px;
   margin: 0 auto;
   padding: 0 20px;
-  transition: all 0.3s ease-in-out;
 `;
 
 const Nav = styled.nav`
-  width: 30%;
+  // @media (max-width: 768px) {
+  //   position: absolute;
+  //   flex-direction: column;
+  // }
 `;
 
-const Menu = styled.ul`
+const Menu = styled.ul<{ isOpen: boolean }>`
   display: flex;
   justify-content: space-between;
+  gap: 50px;
+  padding: 0;
   list-style: none;
   font-size: 24px;
+  @media (max-width: 768px) {
+    position: absolute;
+    left: 0;
+    top: 70px;
+    display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding: 40px 20px;
+    background-color: ${theme.colors.yellow};
+    border-bottom: 4px solid ${theme.colors.textDark};
+  }
 `;
 
 const Logo = styled(Link)`
@@ -84,12 +115,19 @@ const NavLink = styled.a`
 `;
 
 export const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isAtTop = useIsAtTop();
+
+  const handleBurgerButtonClick = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <HeaderWrapper>
+    <HeaderWrapper sticky={!isAtTop}>
       <HeaderContainer>
         <Logo to="/">Ilia Shakurov</Logo>
         <Nav>
-          <Menu>
+          <Menu isOpen={isMenuOpen}>
             <MenuItem>
               <NavLink href="#about">about</NavLink>
             </MenuItem>
@@ -101,6 +139,7 @@ export const Header = () => {
             </MenuItem>
           </Menu>
         </Nav>
+        <Burger isOpen={isMenuOpen} handleClick={handleBurgerButtonClick} />
       </HeaderContainer>
     </HeaderWrapper>
   );

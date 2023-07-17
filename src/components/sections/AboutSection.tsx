@@ -18,7 +18,7 @@ import { skillsListData } from '../../data/skillsList';
 const About = styled.div<{ expanded: boolean }>`
   position: relative;
   flex: 1 1 0;
-  height: ${({ expanded }) => (expanded ? '1010px' : '530px')};
+  max-height: ${({ expanded }) => (expanded ? '1500px' : '530px')};
   overflow: hidden;
   transition: 0.2s ease all;
   ${({ expanded }) =>
@@ -31,10 +31,13 @@ const About = styled.div<{ expanded: boolean }>`
         left: 0;
         right: 0;
         height: 60px;
-        background: linear-gradient(to bottom, rgba(255, 255, 255, 0), ${theme.colors.green});
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0), ${theme.colors.blue});
         pointer-events: none;
       }
     `};
+  @media (max-width: 997px) {
+    max-height: ${({ expanded }) => (expanded ? '1500px' : '360px')};
+  }
 `;
 
 const SkillsList = styled.div`
@@ -43,13 +46,17 @@ const SkillsList = styled.div`
   gap: 20px;
   align-items: start;
   justify-content: flex-start;
-  height: 180px;
 `;
 
 const Photo = styled.img`
   width: 45%;
   object-fit: contain;
   filter: drop-shadow(10px 10px ${theme.colors.textDark});
+  @media (max-width: 997px) {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 40px;
+  }
 `;
 
 const Expander = styled.span`
@@ -63,7 +70,7 @@ export const AboutSection = () => {
   const SkillsListNodes = skillsListData.map((skill) => <TechBadge key={skill}>{skill}</TechBadge>);
 
   return (
-    <SectionWrapper id="about" bgColor={theme.colors.green}>
+    <SectionWrapper id="about" bgColor={theme.colors.blue}>
       <Container>
         <SectionHeader>About me</SectionHeader>
         <SectionContent>

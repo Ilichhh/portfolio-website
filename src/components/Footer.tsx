@@ -14,6 +14,9 @@ const FooterContainer = styled.footer`
   padding: 0 70px;
   color: ${theme.colors.textLight};
   background-color: ${theme.colors.bgDark};
+  @media (max-width: 768px) {
+    padding: 0 20px;
+  }
 `;
 
 const FooterLink = styled(Link)`
@@ -27,6 +30,9 @@ const Year = styled.span`
 const SocialWrapper = styled.div`
   display: flex;
   gap: 20px;
+  @media (max-width: 768px) {
+    gap: 10px;
+  }
 `;
 
 export const Footer = () => {
@@ -44,7 +50,7 @@ export const Footer = () => {
       <FooterLink to="https://github.com/Ilichhh/portfolio-website" target="_blank">
         Code
       </FooterLink>
-      <Year>2023</Year>
+      <Year>© 2023</Year>
       <SocialWrapper>{socialIcons}</SocialWrapper>
     </FooterContainer>
   );
