@@ -70,7 +70,7 @@ export const AboutSection = () => {
   const SkillsListNodes = skillsListData.map((skill) => <TechBadge key={skill}>{skill}</TechBadge>);
 
   return (
-    <SectionWrapper id="about" bgColor={theme.colors.blue}>
+    <SectionWrapper id="about" bgColor={theme.colors.blue} border>
       <Container>
         <SectionHeader>About me</SectionHeader>
         <SectionContent>

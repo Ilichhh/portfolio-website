@@ -55,7 +55,7 @@ const ArrowWrapper = styled.a`
 
 export const HeroSection = () => {
   return (
-    <SectionWrapper id="hero" bgColor={theme.colors.yellow} height="calc(100vh - 70px)">
+    <SectionWrapper id="hero" bgColor={theme.colors.yellow} height="calc(100vh - 70px)" border>
       <Container>
         <HeroWrapper>
           <Header>

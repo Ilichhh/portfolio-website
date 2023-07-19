@@ -38,7 +38,7 @@ export const ProjectsSection = () => {
   ));
 
   return (
-    <SectionWrapper id="projects" bgColor={theme.colors.pink}>
+    <SectionWrapper id="projects" bgColor={theme.colors.pink} border>
       <Container>
         <SectionHeader>Featured projects</SectionHeader>
         <SectionContent>

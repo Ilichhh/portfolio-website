@@ -24,7 +24,7 @@ export const SocialListItem = ({ icon: Icon, link, description, color }: SocialL
   return (
     <ListItem>
       <StyledLink to={link} target="_blank" color={color}>
-        <Icon />
+        <Icon fontSize="large" />
         {description}
       </StyledLink>
     </ListItem>

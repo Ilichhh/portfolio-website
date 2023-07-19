@@ -24,8 +24,12 @@ export const TwoColumnsWrapper = styled.div`
   }
 `;
 
-export const SectionWrapper = styled.section<{ bgColor: string; height?: string }>`
+export const SectionWrapper = styled.section<{
+  bgColor?: string;
+  border?: boolean;
+  height?: string;
+}>`
   height: ${({ height }) => height || 'auto'};
   background-color: ${({ bgColor }) => bgColor};
-  border-bottom: 4px solid ${theme.colors.textDark};
+  border-bottom: ${({ border }) => (border ? '4px solid ' + theme.colors.textDark : 'none')};
 `;
