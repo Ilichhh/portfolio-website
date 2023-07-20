@@ -5,11 +5,10 @@ import theme from '../../theme';
 
 export const StyledLink = styled(Link)<{ color?: string }>`
   position: relative;
-  display: flex;
   gap: 6px;
   font-weight: 600;
   text-decoration: none;
-  color: ${theme.colors.textDark};
+  color: ${({ color }) => (color ? color : theme.colors.textDark)};
   transition: 0.2s all;
   &:before {
     content: '';
@@ -17,7 +16,7 @@ export const StyledLink = styled(Link)<{ color?: string }>`
     bottom: 0;
     width: 0;
     height: 2px;
-    background-color: ${theme.colors.textDark};
+    background-color: ${({ color }) => (color ? color : theme.colors.textDark)};
     transition: 0.2s all ease-out;
   }
   &:hover {
@@ -25,4 +24,10 @@ export const StyledLink = styled(Link)<{ color?: string }>`
       width: 100%;
     }
   }
+`;
+
+export const LinkIcon = styled(Link)<{ color?: string }>`
+  display: flex;
+  color: ${({ color }) => (color ? color : theme.colors.textDark)};
+  transition: 0.2s all;
 `;

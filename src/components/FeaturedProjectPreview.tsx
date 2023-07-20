@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useParallax } from 'react-scroll-parallax';
 
 import { LinkButton, TechBadge } from './common';
+import EastIcon from '@mui/icons-material/East';
 
 import { ProjectPreviewData } from '../types';
 
@@ -18,10 +19,11 @@ const ProjectPreview = styled.div<{ pos: 'left' | 'right' }>`
     flex-direction: column;
   }
 `;
+
 const DesktopScreenshot = styled.img`
   width: 100%;
-  border: 4px solid ${theme.colors.textDark};
-  box-shadow: 6px 6px ${theme.colors.textDark};
+  box-shadow: 10px 10px ${theme.colors.textDark};
+  transition: 0.2s filter;
   @media (max-width: 997px) {
     width: 88%;
   }
@@ -29,14 +31,15 @@ const DesktopScreenshot = styled.img`
 
 const MobileScreenshot = styled.img<{ pos: 'left' | 'right' }>`
   position: absolute;
-  top: 80px;
+  top: 20%;
   ${({ pos }) => (pos === 'left' ? 'right: -60px' : 'left: -60px')};
   width: 28%;
-  border: 4px solid ${theme.colors.textDark};
-  box-shadow: 6px 6px ${theme.colors.textDark};
+  box-shadow: 10px 10px ${theme.colors.textDark};
+  transition: 0.2s filter;
   @media (max-width: 997px) {
     right: 0;
     left: auto;
+    width: 22%;
   }
 `;
 
@@ -49,7 +52,7 @@ const DeployLink = styled.div`
   text-decoration: none;
   opacity: 0;
   background-color: ${theme.colors.bgDark};
-  color: ${theme.colors.yellow};
+  color: ${theme.colors.purple};
   transform: translate(-50%, -50%);
   transition: 0.2s all;
 `;
@@ -57,14 +60,16 @@ const DeployLink = styled.div`
 const ScreenshotsWrapper = styled(Link)`
   position: relative;
   flex: 1 1 0;
-  // &:hover {
-  //   ${DesktopScreenshot}, ${MobileScreenshot} {
-  //     filter: blur(3px);
-  //   }
-  //   ${DeployLink} {
-  //     opacity: 1;
-  //   }
-  // }
+  @media (min-width: 769px) {
+    &:hover {
+      ${DesktopScreenshot}, ${MobileScreenshot} {
+        filter: blur(3px);
+      }
+      ${DeployLink} {
+        opacity: 1;
+      }
+    }
+  }
   @media (max-width: 997px) {
     margin-top: 40px;
   }
@@ -103,7 +108,8 @@ export const FeaturedProjectPreview = ({ data, imagePositioning }: ProjectPrevie
   const { name, stack, description, desktopImageUrl, mobileImageUrl, deployUrl, caseStudyUrl } =
     data;
 
-  const { ref } = useParallax<HTMLImageElement>({ speed: 5 });
+  const desktopParallax = useParallax<HTMLImageElement>({ speed: 3 });
+  const mobileParallax = useParallax<HTMLImageElement>({ speed: 6 });
 
   const TechList = stack.map((skill) => (
     <TechBadge small key={skill}>
@@ -117,17 +123,22 @@ export const FeaturedProjectPreview = ({ data, imagePositioning }: ProjectPrevie
         <Header>{name}</Header>
         <SkillsList>{TechList}</SkillsList>
         <Description>{description}</Description>
-        <LinkButton color={theme.colors.purple} width={180} to={caseStudyUrl}>
+        <LinkButton color={theme.colors.purple} to={caseStudyUrl}>
           Case study
+          <EastIcon />
         </LinkButton>
       </Info>
       <ScreenshotsWrapper to={deployUrl} target="_blank">
-        <DesktopScreenshot src={desktopImageUrl} alt="Project desktop preview"></DesktopScreenshot>
+        <DesktopScreenshot
+          src={desktopImageUrl}
+          alt="Project desktop preview"
+          ref={desktopParallax.ref}
+        ></DesktopScreenshot>
         <MobileScreenshot
           src={mobileImageUrl}
           pos={imagePositioning}
           alt="Project mobile preview"
-          ref={ref}
+          ref={mobileParallax.ref}
         ></MobileScreenshot>
         <DeployLink>Open Deploy</DeployLink>
       </ScreenshotsWrapper>

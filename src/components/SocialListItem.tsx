@@ -1,16 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
+import { StyledLink, LinkIcon } from './common';
 
 const ListItem = styled.li`
-  list-style: none;
-`;
-
-const StyledLink = styled(Link)<{ color?: string }>`
   display: flex;
+  align-items: center;
   gap: 15px;
-  color: ${({ color }) => color};
+  list-style: none;
 `;
 
 interface SocialListItemProps {
@@ -23,8 +20,10 @@ interface SocialListItemProps {
 export const SocialListItem = ({ icon: Icon, link, description, color }: SocialListItemProps) => {
   return (
     <ListItem>
-      <StyledLink to={link} target="_blank" color={color}>
+      <LinkIcon to={link} target="_blank" color={color}>
         <Icon fontSize="large" />
+      </LinkIcon>
+      <StyledLink to={link} target="_blank" color={color}>
         {description}
       </StyledLink>
     </ListItem>

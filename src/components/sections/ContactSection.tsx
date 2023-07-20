@@ -16,10 +16,7 @@ import theme from '../../theme';
 
 import { socialData } from '../../data/social';
 import { SocialListItem } from '../../components/SocialListItem';
-
-const SERVICE_ID = 'service_4hgt81h';
-const TEMPLATE_ID = 'template_ll411ze';
-const USER_ID = 'aoi3RUjI0fMvlih9Z';
+import { SERVICE_ID, TEMPLATE_ID, USER_ID } from '../../constants';
 
 const ContactData = styled.div`
   flex: 1 1 0;
@@ -100,15 +97,10 @@ export const ContactSection = () => {
             <ContactData>
               <ContactDescription>
                 The best way to quickly get in touch with me is through{' '}
-                <StyledLink to="https://t.me/ilichhh" color={theme.colors.yellow}>
-                  Telegram
-                </StyledLink>
-                . For business proposals, you can reach me via{' '}
-                <StyledLink to="mailto:shakurov.ia@gmail.com" color={theme.colors.yellow}>
-                  email
-                </StyledLink>
-                . I speak Russian and English. Additionally, feel free to subscribe to my social
-                networks.
+                <StyledLink to="https://t.me/ilichhh">Telegram</StyledLink>. For business proposals,
+                you can reach me via{' '}
+                <StyledLink to="mailto:shakurov.ia@gmail.com">email</StyledLink>. I speak Russian
+                and English. Additionally, feel free to subscribe to my social networks.
               </ContactDescription>
               <SocialLinks>{contactsList}</SocialLinks>
             </ContactData>

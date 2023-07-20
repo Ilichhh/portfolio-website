@@ -7,4 +7,4 @@ export {
 } from './SectionElements';
 export { LinkButton } from './Buttons';
 export { TechBadge } from './Badges';
-export { StyledLink } from './Links';
+export { StyledLink, LinkIcon } from './Links';

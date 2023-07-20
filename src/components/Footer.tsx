@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { StyledLink } from './common';
 
 import styled from 'styled-components';
 import theme from '../theme';
@@ -10,28 +10,31 @@ const FooterContainer = styled.footer`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
   height: 70px;
   padding: 0 70px;
   color: ${theme.colors.textLight};
   background-color: ${theme.colors.bgDark};
+  @media (max-width: 1440px) {
+    padding: 20px;
+  }
   @media (max-width: 768px) {
-    padding: 0 20px;
+    flex-direction: column;
+    height: auto;
   }
 `;
 
-const FooterLink = styled(Link)`
-  color: ${theme.colors.textLight};
-`;
-
-const Year = styled.span`
-  font-weight: 500;
+const Copyright = styled.span`
+  font-size: 20px;
+  text-align: center;
+  color: ${theme.colors.textInactive};
 `;
 
 const SocialWrapper = styled.div`
   display: flex;
   gap: 20px;
-  @media (max-width: 768px) {
-    gap: 10px;
+  @media (max-width: 997px) {
+    gap: 8px;
   }
 `;
 
@@ -47,10 +50,14 @@ export const Footer = () => {
 
   return (
     <FooterContainer>
-      <FooterLink to="https://github.com/Ilichhh/portfolio-website" target="_blank">
-        Code
-      </FooterLink>
-      <Year>© 2023</Year>
+      <StyledLink
+        color={theme.colors.textLight}
+        to="https://github.com/Ilichhh/portfolio-website"
+        target="_blank"
+      >
+        Source code
+      </StyledLink>
+      <Copyright>© 2023 Built and designed by Ilia Shakurov</Copyright>
       <SocialWrapper>{socialIcons}</SocialWrapper>
     </FooterContainer>
   );

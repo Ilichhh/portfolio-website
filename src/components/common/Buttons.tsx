@@ -7,6 +7,8 @@ export const LinkButton = styled(Link)<{ color?: string; width?: number }>`
   display: flex;
   justify-content: center;
   align-items: center;
+  align-self: flex-start;
+  gap: 8px;
   height: 50px;
   width: ${({ width }) => width}px;
   padding: 20px;
@@ -19,8 +21,8 @@ export const LinkButton = styled(Link)<{ color?: string; width?: number }>`
   cursor: pointer;
   transition: 0.2s all;
   &:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 8px 8px;
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px;
   }
 `;
 
@@ -28,6 +30,7 @@ export const Button = styled.button<{ color?: string; width?: number; centered?:
   display: flex;
   justify-content: center;
   align-items: center;
+  align-self: flex-start;
   height: 50px;
   width: ${({ width }) => width}px;
   padding: 20px;
@@ -40,7 +43,7 @@ export const Button = styled.button<{ color?: string; width?: number; centered?:
   cursor: pointer;
   transition: 0.2s all;
   &:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 8px 8px;
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px;
   }
 `;

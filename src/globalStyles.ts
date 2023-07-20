@@ -16,6 +16,9 @@ const GlobalStyles = createGlobalStyle`
     font-size: 24px;
     background-color: ${theme.colors.bgLight};
     color: ${theme.colors.textDark};
+    @media (max-width: 768px) {
+      font-size: 20px;
+    }
   }
   a {
     color: ${theme.colors.textDark};
