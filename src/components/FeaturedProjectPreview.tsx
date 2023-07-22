@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useParallax } from 'react-scroll-parallax';
 
 import { LinkButton, TechBadge } from './common';
-import EastIcon from '@mui/icons-material/East';
+import { East, OpenInNew } from '@mui/icons-material';
 
 import { ProjectPreviewData } from '../types';
 
@@ -47,6 +47,9 @@ const DeployLink = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   padding: 10px 20px;
   font-size: 32px;
   text-decoration: none;
@@ -85,6 +88,9 @@ const Info = styled.div`
 
 const Header = styled.h3`
   margin: 20px 0 0;
+  @media (max-width: 997px) {
+    margin: 0;
+  }
 `;
 
 const SkillsList = styled.div`
@@ -125,7 +131,7 @@ export const FeaturedProjectPreview = ({ data, imagePositioning }: ProjectPrevie
         <Description>{description}</Description>
         <LinkButton color={theme.colors.purple} to={caseStudyUrl}>
           Case study
-          <EastIcon />
+          <East />
         </LinkButton>
       </Info>
       <ScreenshotsWrapper to={deployUrl} target="_blank">
@@ -140,7 +146,10 @@ export const FeaturedProjectPreview = ({ data, imagePositioning }: ProjectPrevie
           alt="Project mobile preview"
           ref={mobileParallax.ref}
         ></MobileScreenshot>
-        <DeployLink>Open Deploy</DeployLink>
+        <DeployLink>
+          Open deploy
+          <OpenInNew fontSize="large" />
+        </DeployLink>
       </ScreenshotsWrapper>
     </ProjectPreview>
   );

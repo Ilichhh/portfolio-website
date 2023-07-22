@@ -1,6 +1,7 @@
+import { useIsAtTop } from '../../hooks/useIsAtTop';
+
 import { SectionWrapper, Container, LinkButton } from '../common';
-import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import { OpenInNew, KeyboardArrowDown } from '@mui/icons-material';
 
 import styled from 'styled-components';
 import theme from '../../theme';
@@ -28,6 +29,7 @@ const Subheader = styled.h2`
   margin-bottom: 40px;
   @media (max-width: 997px) {
     width: 85%;
+    font-size: 20px;
   }
 `;
 
@@ -37,7 +39,7 @@ const ButtonsWrapper = styled.div`
   margin-bottom: 40px;
 `;
 
-const LinkIcon = styled(OpenInNewIcon)`
+const LinkIcon = styled(OpenInNew)`
   margin-left: 7px;
 `;
 
@@ -54,6 +56,8 @@ const ArrowWrapper = styled.a`
 `;
 
 export const HeroSection = () => {
+  const isAtTop = useIsAtTop();
+
   return (
     <SectionWrapper id="hero" bgColor={theme.colors.yellow} height="calc(100vh - 70px)" border>
       <Container>
@@ -78,10 +82,11 @@ export const HeroSection = () => {
               Contact
             </LinkButton>
           </ButtonsWrapper>
-          <ArrowWrapper href="#about">
-            <span>about me</span>
-            <KeyboardArrowDownIcon fontSize="large" />
-          </ArrowWrapper>
+          {isAtTop && (
+            <ArrowWrapper href="#about">
+              <KeyboardArrowDown fontSize="large" />
+            </ArrowWrapper>
+          )}
         </HeroWrapper>
       </Container>
     </SectionWrapper>

@@ -16,4 +16,9 @@ export const TechBadge = styled.span<{ small?: boolean }>`
     `};
   color: ${theme.colors.textLight};
   background-color: ${theme.colors.bgDark};
+  @media (max-width: 520px) {
+    height: 32px;
+    padding: 0 14px;
+    font-size: 18px;
+  }
 `;
