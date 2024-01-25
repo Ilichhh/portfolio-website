@@ -1,25 +1,13 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useIsAtTop } from '../hooks/useIsAtTop';
 
 import { Burger } from './Burger';
 
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import theme from '../theme';
 
-const HeaderWrapper = styled.header<{ sticky: boolean }>`
+const HeaderWrapper = styled.header`
   background-color: ${theme.colors.yellow};
-  position: sticky;
-  @media (max-width: 768px) {
-    ${({ sticky }) =>
-      sticky &&
-      css`
-        position: sticky;
-        top: 0;
-        z-index: 10;
-        // border-bottom: 4px solid ${theme.colors.textDark};
-      `}
-  }
 `;
 
 const HeaderContainer = styled.div`
@@ -67,6 +55,7 @@ const Logo = styled(Link)`
   text-transform: uppercase;
   text-decoration: none;
   font-weight: 600;
+  font-size: 24px;
   background-color: ${theme.colors.bgDark};
   color: ${theme.colors.textLight};
   transition: 0.2s all;
@@ -116,14 +105,13 @@ const NavLink = styled.a`
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const isAtTop = useIsAtTop();
 
   const handleBurgerButtonClick = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   return (
-    <HeaderWrapper sticky={!isAtTop}>
+    <HeaderWrapper>
       <HeaderContainer>
         <Logo to="/">Ilia Shakurov</Logo>
         <Nav>
