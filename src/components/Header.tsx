@@ -45,6 +45,7 @@ const Menu = styled.ul<{ isOpen: boolean }>`
     padding: 40px 20px;
     background-color: ${theme.colors.yellow};
     border-bottom: 4px solid ${theme.colors.textDark};
+    box-shadow: 6px 6px ${theme.colors.textDark};
   }
 `;
 
@@ -89,9 +90,11 @@ const MenuItem = styled.li`
     background-color: ${theme.colors.textDark};
     transition: 0.2s all ease-out;
   }
-  &:hover {
-    &:before {
-      width: 100%;
+  @media (min-width: 769px) {
+    &:hover {
+      &:before {
+        width: 100%;
+      }
     }
   }
 `;
@@ -110,6 +113,10 @@ export const Header = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <HeaderWrapper>
       <HeaderContainer>
@@ -117,13 +124,19 @@ export const Header = () => {
         <Nav>
           <Menu isOpen={isMenuOpen}>
             <MenuItem>
-              <NavLink href="#about">about</NavLink>
+              <NavLink onClick={closeMenu} href="#about">
+                about
+              </NavLink>
             </MenuItem>
             <MenuItem>
-              <NavLink href="#projects">projects</NavLink>
+              <NavLink onClick={closeMenu} href="#projects">
+                projects
+              </NavLink>
             </MenuItem>
             <MenuItem>
-              <NavLink href="#contact">contact</NavLink>
+              <NavLink onClick={closeMenu} href="#contact">
+                contact
+              </NavLink>
             </MenuItem>
           </Menu>
         </Nav>
