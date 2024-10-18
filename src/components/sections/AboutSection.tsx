@@ -85,7 +85,10 @@ export const AboutSection = () => {
         <SectionHeader>About me</SectionHeader>
         <SectionContent>
           <TwoColumnsWrapper>
-            <Photo src="./photo_about.png" />
+            <Photo
+              src="./photo_about.png"
+              alt="Not my best phono, I'll have to replace it sometime :D"
+            />
             <div>
               <SkillsList>{SkillsListNodes}</SkillsList>
               <About expanded={expanded}>
