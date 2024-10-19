@@ -1,4 +1,14 @@
 export const projectsData = [
+  // {
+  //   name: 'Pioneer App',
+  //   stack: ['Styled-components', 'TypeScript', 'React JS', 'GraphQL'],
+  //   description: 'This is Governance application for the Joystream DAO platform.',
+  //   desktopImageUrl: '',
+  //   mobileImageUrl: '',
+  //   githubUrl: 'https://github.com/Joystream/pioneer/commits?author=Ilichhh',
+  //   deployUrl: 'https://pioneerapp.xyz/',
+  //   caseStudyUrl: '/',
+  // },
   {
     name: 'GraphiQL Playground',
     stack: ['Styled-components', 'MUI', 'TypeScript', 'React JS', 'Redux', 'GraphQL', 'Firebase'],
