@@ -57,7 +57,7 @@ export const Footer = () => {
       >
         Source code
       </StyledLink>
-      <Copyright>© 2023 Built and designed by Ilia Shakurov</Copyright>
+      <Copyright>© 2024 Built and designed by Ilia Shakurov</Copyright>
       <SocialWrapper>{socialIcons}</SocialWrapper>
     </FooterContainer>
   );

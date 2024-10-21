@@ -78,7 +78,7 @@ export const HeroSection = () => {
               CV
               <LinkIcon />
             </LinkButton>
-            <LinkButton color={theme.colors.pink} to="mailto:shakurov.ia@gmail.com">
+            <LinkButton color={theme.colors.blue} to="mailto:shakurov.ia@gmail.com">
               Contact
             </LinkButton>
           </ButtonsWrapper>
