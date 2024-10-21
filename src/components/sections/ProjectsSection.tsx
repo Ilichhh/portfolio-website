@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useIsMobileView } from '../../hooks/useIsMobileView';
 
 import { SectionWrapper, Container, SectionHeader, SectionContent } from '../common';
 import { Button } from '../common/Buttons';
@@ -28,12 +29,14 @@ const ButtonsWrapper = styled.div`
 
 export const ProjectsSection = () => {
   const [isMoreProjectsOpen, setIsMoreProjectsOpen] = useState(false);
+  const isMobileView = useIsMobileView();
 
   const projectsList = projectsData.map((project, index) => (
     <FeaturedProjectPreview
       key={project.name}
       data={project}
       imagePositioning={index % 2 === 0 ? 'right' : 'left'}
+      isMobileView={isMobileView}
     />
   ));
 

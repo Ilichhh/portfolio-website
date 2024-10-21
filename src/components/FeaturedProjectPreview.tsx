@@ -108,9 +108,14 @@ const Description = styled.p`
 interface ProjectPreviewProps {
   data: ProjectPreviewData;
   imagePositioning: 'left' | 'right';
+  isMobileView: boolean;
 }
 
-export const FeaturedProjectPreview = ({ data, imagePositioning }: ProjectPreviewProps) => {
+export const FeaturedProjectPreview = ({
+  data,
+  imagePositioning,
+  isMobileView,
+}: ProjectPreviewProps) => {
   const { name, stack, description, desktopImageUrl, mobileImageUrl, deployUrl, caseStudyUrl } =
     data;
 
@@ -123,6 +128,7 @@ export const FeaturedProjectPreview = ({ data, imagePositioning }: ProjectPrevie
     </TechBadge>
   ));
 
+  console.log(isMobileView);
   return (
     <ProjectPreview pos={imagePositioning}>
       <Info>
