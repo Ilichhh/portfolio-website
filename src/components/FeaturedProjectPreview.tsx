@@ -119,8 +119,11 @@ export const FeaturedProjectPreview = ({
   const { name, stack, description, desktopImageUrl, mobileImageUrl, deployUrl, caseStudyUrl } =
     data;
 
-  const desktopParallax = useParallax<HTMLImageElement>({ speed: 3 });
-  const mobileParallax = useParallax<HTMLImageElement>({ speed: 6 });
+  const descktopImageSpeed = isMobileView ? 0 : 3;
+  const mobileImageSpeed = isMobileView ? 0 : 6;
+
+  const desktopParallax = useParallax<HTMLImageElement>({ speed: descktopImageSpeed });
+  const mobileParallax = useParallax<HTMLImageElement>({ speed: mobileImageSpeed });
 
   const TechList = stack.map((skill) => (
     <TechBadge small key={skill}>
@@ -129,6 +132,27 @@ export const FeaturedProjectPreview = ({
   ));
 
   console.log(isMobileView);
+
+  // const screenshots = (
+  //   <ScreenshotsWrapper to={deployUrl} target="_blank">
+  //     <DesktopScreenshot
+  //       src={desktopImageUrl}
+  //       alt="Project desktop preview"
+  //       ref={desktopParallax.ref}
+  //     ></DesktopScreenshot>
+  //     <MobileScreenshot
+  //       src={mobileImageUrl}
+  //       pos={imagePositioning}
+  //       alt="Project mobile preview"
+  //       ref={mobileParallax.ref}
+  //     ></MobileScreenshot>
+  //     <DeployLink>
+  //       Open deploy
+  //       <OpenInNew fontSize="large" />
+  //     </DeployLink>
+  //   </ScreenshotsWrapper>
+  // );
+
   return (
     <ProjectPreview pos={imagePositioning}>
       <Info>
