@@ -11,6 +11,7 @@ const theme = {
     blue: '#87CEEB',
     purple: '#C4A1FF',
     important: '#6600FF',
+    error: 'red',
   },
   contentWidth: '1600px',
 };

@@ -131,28 +131,6 @@ export const FeaturedProjectPreview = ({
     </TechBadge>
   ));
 
-  console.log(isMobileView);
-
-  // const screenshots = (
-  //   <ScreenshotsWrapper to={deployUrl} target="_blank">
-  //     <DesktopScreenshot
-  //       src={desktopImageUrl}
-  //       alt="Project desktop preview"
-  //       ref={desktopParallax.ref}
-  //     ></DesktopScreenshot>
-  //     <MobileScreenshot
-  //       src={mobileImageUrl}
-  //       pos={imagePositioning}
-  //       alt="Project mobile preview"
-  //       ref={mobileParallax.ref}
-  //     ></MobileScreenshot>
-  //     <DeployLink>
-  //       Open deploy
-  //       <OpenInNew fontSize="large" />
-  //     </DeployLink>
-  //   </ScreenshotsWrapper>
-  // );
-
   return (
     <ProjectPreview pos={imagePositioning}>
       <Info>

@@ -54,6 +54,7 @@ const ContactForm = styled.form`
 `;
 
 const Input = styled.input`
+  width: 100%;
   min-height: 50px;
   padding-left: 10px;
   border: 4px solid ${theme.colors.textDark};
@@ -61,10 +62,19 @@ const Input = styled.input`
 `;
 
 const Textarea = styled.textarea`
+  width: 100%;
   min-height: 50px;
   padding-left: 10px;
   border: 4px solid ${theme.colors.textDark};
   box-shadow: 6px 6px ${theme.colors.textDark};
+`;
+
+const ErrorMessage = styled.div`
+  padding-top: 8px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1;
+  color: ${theme.colors.error};
 `;
 
 export const ContactSection = () => {
@@ -77,7 +87,12 @@ export const ContactSection = () => {
     />
   ));
 
-  const { register, handleSubmit, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
 
   const sendEmail: SubmitHandler<FieldValues> = async () => {
     try {
@@ -104,15 +119,46 @@ export const ContactSection = () => {
               </ContactDescription>
               <SocialLinks>{contactsList}</SocialLinks>
             </ContactData>
-            <ContactForm id="form" onSubmit={handleSubmit(sendEmail)}>
-              <Input type="text" {...register('name')} placeholder="Your name"></Input>
-              <Input type="email" {...register('email')} placeholder="Your email"></Input>
+            <ContactForm id="form" onSubmit={handleSubmit(sendEmail)} noValidate>
+              <div>
+                <Input
+                  type="text"
+                  {...register('name', {
+                    required: 'Please enter your name',
+                    minLength: 1,
+                  })}
+                  placeholder="Your name"
+                ></Input>
+                {errors.name && <ErrorMessage>{errors.name?.message?.toString()}</ErrorMessage>}
+              </div>
+              <div>
+                <Input
+                  type="email"
+                  {...register('email', {
+                    required: 'Please enter email',
+                    pattern: {
+                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                      message: 'Invalid email address',
+                    },
+                  })}
+                  placeholder="Your email"
+                ></Input>
+                {errors.email && <ErrorMessage>{errors.email?.message?.toString()}</ErrorMessage>}
+              </div>
               <Input type="text" {...register('subject')} placeholder="Subject"></Input>
-              <Textarea
-                rows={6}
-                {...register('message')}
-                placeholder="How can I help you?"
-              ></Textarea>
+              <div>
+                <Textarea
+                  rows={6}
+                  {...register('message', {
+                    required: 'Please enter your message',
+                    minLength: 1,
+                  })}
+                  placeholder="How can I help you?"
+                ></Textarea>
+                {errors.message && (
+                  <ErrorMessage>{errors.message?.message?.toString()}</ErrorMessage>
+                )}
+              </div>
               <Button type="submit" color={theme.colors.yellow}>
                 Get in touch
               </Button>
